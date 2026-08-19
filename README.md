@@ -103,8 +103,9 @@ The planned architecture is based on the following layers:
 └───────────────────────────┘
 
 ```
+---
 
-### Project Structure
+## Project Structure
 LibraryApi/
 │
 ├── LibraryAPI/
