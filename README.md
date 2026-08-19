@@ -101,11 +101,13 @@ The planned architecture is based on the following layers:
 ├───────────────────────────┤
 │      Infrastructure       │
 └───────────────────────────┘
-
 ```
----
 
-## Project Structure
+## 📂 Project Structure
+
+Current project structure:
+
+```text
 LibraryApi/
 │
 ├── LibraryAPI/
@@ -119,9 +121,14 @@ LibraryApi/
 ├── LibraryApi.sln
 ├── .gitignore
 └── README.md
+```
+
+The project structure will evolve as new architectural layers and features are introduced.
+
+---
 
 ## 👨‍💻 Author
 
-Paulo Ricardo
+**Paulo Ricardo**
 
 .NET Backend Developer
