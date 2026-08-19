@@ -102,7 +102,7 @@ The planned architecture is based on the following layers:
 │      Infrastructure       │
 └───────────────────────────┘
 ```
-
+---
 ## 📂 Project Structure
 
 Current project structure:
