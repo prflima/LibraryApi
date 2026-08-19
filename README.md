@@ -39,11 +39,11 @@ The project is currently in **Sprint 0 — Foundation**.
 
 ### Sprint 0
 
-- [x] Create GitHub repository
-- [x] Create .NET solution
-- [x] Create initial ASP.NET Core API
-- [x] Configure Git
-- [x] Create initial project documentation
+- [ x ] Create GitHub repository
+- [ x ] Create .NET solution
+- [ x ] Create initial ASP.NET Core API
+- [ x ] Configure Git
+- [ x ] Create initial project documentation
 
 ### Next Sprints
 
@@ -102,6 +102,7 @@ The planned architecture is based on the following layers:
 │      Infrastructure       │
 └───────────────────────────┘
 
+```
 
 ### Project Structure
 LibraryApi/
