@@ -5,11 +5,11 @@ namespace LibraryAPI.Data
 {
     public class LibraryDbContext : DbContext
     {
-        public DbSet<User> User { get; set; }
-        public DbSet<Book> Book { get; set; }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Author> Author { get; set; }
-        public DbSet<BookLoan> BookLoan { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<BookLoan> BookLoans { get; set; }
 
         public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options) { }
         
