@@ -3,12 +3,11 @@
     public class Category : Root
     {
         public string Name { get; private set; }
+        public IReadOnlyCollection<Book> Books { get; set; }
 
-        public Category()
+        public Category(string name)
         {
-            Id = Guid.NewGuid();
-            Name = Name;
-            CreatedAt = DateTime.Now;
+            Name = name;
         }
     }
 }

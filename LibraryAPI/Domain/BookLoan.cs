@@ -4,34 +4,46 @@ namespace LibraryAPI.Domain
 {
     public class BookLoan : Root
     {
+        public Guid? BookId { get; set; }
         public Book Book { get; private set; }
+        public Guid? UserId { get; set; }
         public User User { get; private set; }
         public DateTime LoanDate { get; private set; }
         public DateTime DueDate { get; private set; }
         public DateTime? ReturnDate { get; private set; }
         public LoanStatus Status { get; private set; }
 
-        public BookLoan(Book book, User user, DateTime loanDate, DateTime dueDate)
+        public BookLoan(Guid? bookId, Guid? userId, DateTime loanDate, DateTime dueDate)
         {
-            Id = Guid.NewGuid();
-            Book = book;
-            User = user;
-            CreatedAt = DateTime.Now;
+            BookId = bookId;
+            UserId = userId;
             LoanDate = loanDate;
             DueDate = dueDate;
             Status = LoanStatus.Active;
         }
 
-        public void ReturnLoan()
+        // Auxiliar constructor to create a BookLoan with Book and User objects
+        public BookLoan(Book book, User user, DateTime loanDate, DateTime dueDate)
+            : this(book?.Id, user?.Id, loanDate, dueDate)
         {
-            ReturnDate = DateTime.Now;
-            Status = LoanStatus.Returned;
-
-
-            Book.BookReturned();
+            Book = book;
+            User = user;
         }
 
-        public LoanStatus VerifyStatusLoan()
+        public void ReturnLoan()
+        {
+            if (!ReturnDate.HasValue &&
+                (Status == LoanStatus.Active ||
+                 Status == LoanStatus.Overdue))
+            {
+                ReturnDate = DateTime.Now;
+                Status = LoanStatus.Returned;
+
+                Book.BookReturned();
+            }                
+        }
+
+        public LoanStatus VerifyStatusAndMarkAsOverdue()
         {
             if (DateTime.Now > DueDate &&
                 !ReturnDate.HasValue)

@@ -4,11 +4,11 @@
     {
         public string Name { get; private set; }
 
+        public IReadOnlyCollection<Book> Books { get; set; }
+
         public Author(string name)
         {
-            Id = Guid.NewGuid();
             Name = name;
-            CreatedAt = DateTime.Now;
         }
     }
 }
