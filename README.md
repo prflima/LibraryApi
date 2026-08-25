@@ -103,6 +103,7 @@ The planned architecture is based on the following layers:
 └───────────────────────────┘
 ```
 ---
+
 ## 📂 Project Structure
 
 Current project structure:
