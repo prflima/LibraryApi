@@ -1,6 +1,6 @@
 ﻿using LibraryAPI.Enums;
 
-namespace LibraryAPI.Domain
+namespace LibraryAPI.Domain.Entities
 {
     public class User : Root
     {

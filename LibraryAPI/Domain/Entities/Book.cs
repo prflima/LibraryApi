@@ -1,4 +1,4 @@
-﻿namespace LibraryAPI.Domain
+﻿namespace LibraryAPI.Domain.Entities
 {
     public class Book : Root
     {

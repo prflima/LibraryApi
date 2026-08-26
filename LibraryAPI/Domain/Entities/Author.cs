@@ -1,11 +1,12 @@
-﻿namespace LibraryAPI.Domain
+﻿namespace LibraryAPI.Domain.Entities
 {
-    public class Category : Root
+    public class Author : Root
     {
         public string Name { get; private set; }
+
         public IReadOnlyCollection<Book> Books { get; set; }
 
-        public Category(string name)
+        public Author(string name)
         {
             Name = name;
         }

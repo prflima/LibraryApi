@@ -1,0 +1,35 @@
+﻿using FluentValidation;
+using LibraryAPI.Data;
+using LibraryAPI.Domain.Interfaces.Author;
+using LibraryAPI.Mapping;
+
+namespace LibraryAPI.Application.Author.CreateAuthorUseCase
+{
+    public class CreateAuthorUseCase : ICreateAuthorUseCase
+    {
+        private readonly LibraryDbContext _context;
+        private readonly IValidator<CreateAuthorCommand> _validator;
+        public CreateAuthorUseCase(
+            LibraryDbContext context,
+            IValidator<CreateAuthorCommand> validator)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _validator = validator ?? throw new ArgumentNullException(nameof(validator));
+        }
+        public async Task<CreateAuthorResponseDto> ExecuteAsync(CreateAuthorCommand command, CancellationToken ct)
+        {
+            var validationResult = await _validator.ValidateAsync(command, ct);
+            if(!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+
+            var author = command.ToEntity();
+
+            _context.Authors.Add(author);
+            await _context.SaveChangesAsync(ct);
+
+            return author.ToDto();
+        }
+    }
+}

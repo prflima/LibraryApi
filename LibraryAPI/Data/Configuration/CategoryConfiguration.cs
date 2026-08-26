@@ -1,4 +1,4 @@
-﻿using LibraryAPI.Domain;
+﻿using LibraryAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
