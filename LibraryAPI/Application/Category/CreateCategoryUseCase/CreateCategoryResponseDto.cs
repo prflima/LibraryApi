@@ -1,6 +1,6 @@
-﻿namespace LibraryAPI.Application.Author.GetAuthorByIdUseCase
+﻿namespace LibraryAPI.Application.Category.CreateCategoryUseCase
 {
-    public record GetAuthorByIdResponseDto
+    public record CreateCategoryResponseDto
     {
         public string Id { get; set; }
         public string Name { get; set; }

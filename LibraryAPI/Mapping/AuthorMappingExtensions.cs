@@ -25,7 +25,7 @@ namespace LibraryAPI.Mapping
         {
             return new GetAuthorByIdResponseDto
             {
-                Guid = author.Id.ToString(),
+                Id = author.Id.ToString(),
                 Name = author.Name,
                 CreatedAt = author.CreatedAt
             };

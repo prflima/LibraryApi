@@ -1,22 +1,24 @@
 ﻿using FluentValidation;
-using LibraryAPI.Application.Interfaces.Author;
+using LibraryAPI.Application.Interfaces.Category;
 using LibraryAPI.Data;
 using LibraryAPI.Mapping;
 
-namespace LibraryAPI.Application.Author.CreateAuthorUseCase
+namespace LibraryAPI.Application.Category.CreateCategoryUseCase
 {
-    public class CreateAuthorUseCase : ICreateAuthorUseCase
+    public class CreateCategoryUseCase : ICreateCategoryUseCase
     {
         private readonly LibraryDbContext _context;
-        private readonly IValidator<CreateAuthorCommand> _validator;
-        public CreateAuthorUseCase(
+        private readonly IValidator<CreateCategoryCommand> _validator;
+
+        public CreateCategoryUseCase(
             LibraryDbContext context,
-            IValidator<CreateAuthorCommand> validator)
+            IValidator<CreateCategoryCommand> validator)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
         }
-        public async Task<CreateAuthorResponseDto> ExecuteAsync(CreateAuthorCommand command, CancellationToken ct)
+
+        public async Task<CreateCategoryResponseDto> ExecuteAsync(CreateCategoryCommand command, CancellationToken ct)
         {
             var validationResult = await _validator.ValidateAsync(command, ct);
             if(!validationResult.IsValid)
@@ -24,12 +26,12 @@ namespace LibraryAPI.Application.Author.CreateAuthorUseCase
                 throw new ValidationException(validationResult.Errors);
             }
 
-            var author = command.ToEntity();
+            var category = command.ToEntity();
 
-            await _context.Authors.AddAsync(author);
+            await _context.Categories.AddAsync(category);
             await _context.SaveChangesAsync(ct);
 
-            return author.ToDto();
+            return category.ToDto();
         }
     }
 }

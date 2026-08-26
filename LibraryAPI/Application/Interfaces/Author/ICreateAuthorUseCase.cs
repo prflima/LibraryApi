@@ -2,7 +2,7 @@
 
 namespace LibraryAPI.Application.Interfaces.Author
 {
-    public interface ICreateAuthorUseCase
+    public interface ICreateAuthorUseCase 
     {
         Task<CreateAuthorResponseDto> ExecuteAsync(CreateAuthorCommand command, CancellationToken ct);
     }
