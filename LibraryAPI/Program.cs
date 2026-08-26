@@ -2,7 +2,8 @@ using LibraryAPI.Application.Author.CreateAuthorUseCase;
 using LibraryAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
-using LibraryAPI.Domain.Interfaces.Author;
+using LibraryAPI.Application.Interfaces.Author;
+using LibraryAPI.Application.Author.GetAuthorByIdUseCase;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateAuthorCommand>();
 
 // Register the use case
 builder.Services.AddScoped<ICreateAuthorUseCase, CreateAuthorUseCase>();
+builder.Services.AddScoped<IGetAuthorByIdUseCase, GetAuthorByIdUseCase>();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

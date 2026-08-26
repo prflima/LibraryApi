@@ -2,9 +2,9 @@
 
 namespace LibraryAPI.Application.Author.CreateAuthorUseCase
 {
-    public class CreateProductCommandValidator : AbstractValidator<CreateAuthorCommand>
+    public class CreateAuthorCommandValidator : AbstractValidator<CreateAuthorCommand>
     {
-        public CreateProductCommandValidator()
+        public CreateAuthorCommandValidator()
         {
             RuleFor(x => x.Name)
                 .NotEmpty()

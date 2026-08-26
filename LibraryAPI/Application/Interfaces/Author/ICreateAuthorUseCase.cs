@@ -1,6 +1,6 @@
 ﻿using LibraryAPI.Application.Author.CreateAuthorUseCase;
 
-namespace LibraryAPI.Domain.Interfaces.Author
+namespace LibraryAPI.Application.Interfaces.Author
 {
     public interface ICreateAuthorUseCase
     {

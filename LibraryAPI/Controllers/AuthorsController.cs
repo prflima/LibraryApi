@@ -1,5 +1,6 @@
 ﻿using LibraryAPI.Application.Author.CreateAuthorUseCase;
-using LibraryAPI.Domain.Interfaces.Author;
+using LibraryAPI.Application.Author.GetAuthorByIdUseCase;
+using LibraryAPI.Application.Interfaces.Author;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAPI.Controllers
@@ -15,7 +16,18 @@ namespace LibraryAPI.Controllers
             CancellationToken ct)
         {
             var response = await useCase.ExecuteAsync(command, ct);
-            return CreatedAtAction(nameof(Create), new { id = response.Id }, response);
+            return CreatedAtAction(nameof(GetById), new { id = response.Id }, response);
+        }
+
+        [HttpGet("{guid}")]
+        public async Task<IActionResult> GetById(
+            [FromRoute] Guid guid,
+            [FromServices] IGetAuthorByIdUseCase useCase,
+            CancellationToken ct)
+        {
+            var command = new GetAuthorByIdCommand(guid);
+            var response = await useCase.ExecuteAsync(command, ct);
+            return Ok(response);
         }
     }
 }

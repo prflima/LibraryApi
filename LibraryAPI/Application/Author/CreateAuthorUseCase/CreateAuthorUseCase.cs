@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
+using LibraryAPI.Application.Interfaces.Author;
 using LibraryAPI.Data;
-using LibraryAPI.Domain.Interfaces.Author;
 using LibraryAPI.Mapping;
 
 namespace LibraryAPI.Application.Author.CreateAuthorUseCase
