@@ -1,14 +1,10 @@
 using LibraryAPI.Application.DependencyInjection;
-using LibraryAPI.Infrastructure;
-using Microsoft.EntityFrameworkCore;
+using LibraryAPI.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure dbContext
-builder.Services.AddDbContext<LibraryDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LibraryConnection")));
-
 // Register dependency injection for layers of clean architecture
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
 // Add services to the container.

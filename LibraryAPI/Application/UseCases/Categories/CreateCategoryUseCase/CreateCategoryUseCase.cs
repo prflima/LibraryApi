@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using LibraryAPI.Application.Interfaces.Category;
 using LibraryAPI.Application.Mapping;
-using LibraryAPI.Infrastructure;
+using LibraryAPI.Infrastructure.Persistence;
 
 namespace LibraryAPI.Application.UseCases.Categories.CreateCategoryUseCase
 {

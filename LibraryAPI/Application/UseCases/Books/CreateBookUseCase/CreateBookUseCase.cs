@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using LibraryAPI.Application.Interfaces.Book;
 using LibraryAPI.Application.Mapping;
-using LibraryAPI.Infrastructure;
+using LibraryAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAPI.Application.UseCases.Books.CreateBookUseCase
