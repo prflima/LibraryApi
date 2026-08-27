@@ -1,28 +1,21 @@
 ﻿using LibraryAPI.Domain.Entities;
 using LibraryAPI.Domain.Interfaces.Repositories;
 using LibraryAPI.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAPI.Infrastructure.Repositories
 {
-    public class AuthorRepository : IAuthorRepository
+    public class BookRepository : IBookRepository
     {
         private readonly LibraryDbContext _context;
-        public AuthorRepository(
+        public BookRepository(
             LibraryDbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task CreateAsync(Author author, CancellationToken ct)
+        public async Task CreateAsync(Book book, CancellationToken ct)
         {
-            await _context.Authors.AddAsync(author, ct);
-        }
-
-        public async Task<Author> GetByIdAsync(Guid Id, CancellationToken ct)
-        {
-            return await _context.Authors
-                                 .FirstOrDefaultAsync(author => author.Id == Id, ct);
+            await _context.Books.AddAsync(book, ct);
         }
 
         public async Task SaveChangesAsync(CancellationToken ct)

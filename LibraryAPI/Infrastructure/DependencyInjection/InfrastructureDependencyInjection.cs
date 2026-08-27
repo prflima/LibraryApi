@@ -16,6 +16,7 @@ namespace LibraryAPI.Infrastructure.DependencyInjection
 
             // Configure repositories
             services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             return services;
         }

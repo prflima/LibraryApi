@@ -1,20 +1,20 @@
 ﻿using FluentValidation;
 using LibraryAPI.Application.Interfaces.Category;
 using LibraryAPI.Application.Mapping;
-using LibraryAPI.Infrastructure.Persistence;
+using LibraryAPI.Domain.Interfaces.Repositories;
 
 namespace LibraryAPI.Application.UseCases.Categories.CreateCategoryUseCase
 {
     public class CreateCategoryUseCase : ICreateCategoryUseCase
     {
-        private readonly LibraryDbContext _context;
+        private readonly ICategoryRepository _repository;
         private readonly IValidator<CreateCategoryCommand> _validator;
 
         public CreateCategoryUseCase(
-            LibraryDbContext context,
+            ICategoryRepository repository,
             IValidator<CreateCategoryCommand> validator)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
         }
 
@@ -28,8 +28,8 @@ namespace LibraryAPI.Application.UseCases.Categories.CreateCategoryUseCase
 
             var category = command.ToEntity();
 
-            await _context.Categories.AddAsync(category);
-            await _context.SaveChangesAsync(ct);
+            await _repository.CreateAsync(category, ct);
+            await _repository.SaveChangesAsync(ct);
 
             return new CreateCategoryResponseDto { CategoryDto = category.ToDto() };
         }

@@ -1,21 +1,20 @@
 ﻿using FluentValidation;
 using LibraryAPI.Application.Interfaces.Category;
 using LibraryAPI.Application.Mapping;
-using LibraryAPI.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
+using LibraryAPI.Domain.Interfaces.Repositories;
 
 namespace LibraryAPI.Application.UseCases.Categories.GetCategoryByIdUseCase
 {
     public class GetCategoryByIdUseCase : IGetCategoryByIdUseCase
     {
-        private readonly LibraryDbContext _context;
+        private readonly ICategoryRepository _repository;
         private readonly IValidator<GetCategoryByIdQuery> _validator;
 
         public GetCategoryByIdUseCase(
-            LibraryDbContext context,
+            ICategoryRepository repository,
             IValidator<GetCategoryByIdQuery> validator)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
         }
 
@@ -25,9 +24,7 @@ namespace LibraryAPI.Application.UseCases.Categories.GetCategoryByIdUseCase
             if(!validationResult.IsValid)
                 throw new ValidationException(validationResult.Errors);
 
-            var category = await _context.Categories
-                                            .Include(c => c.Books)
-                                            .FirstOrDefaultAsync(c => c.Id == command.Id);
+            var category = await _repository.GetByIdAsync(command.Id, ct);
 
             if(category is null)
                 throw new KeyNotFoundException($"Author with ID {command.Id} not found.");

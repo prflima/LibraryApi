@@ -1,21 +1,20 @@
 ﻿using FluentValidation;
 using LibraryAPI.Application.Interfaces.Author;
 using LibraryAPI.Application.Mapping;
-using LibraryAPI.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
+using LibraryAPI.Domain.Interfaces.Repositories;
 
 namespace LibraryAPI.Application.UseCases.Authors.GetAuthorByIdUseCase
 {
     public class GetAuthorByIdUseCase : IGetAuthorByIdUseCase
     {
-        private readonly LibraryDbContext _context;
+        private readonly IAuthorRepository _repository;
         private readonly IValidator<GetAuthorByIdQuery> _validator;
 
         public GetAuthorByIdUseCase(
-            LibraryDbContext context,
+            IAuthorRepository repository,
             IValidator<GetAuthorByIdQuery> validator)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
         }
 
@@ -27,10 +26,7 @@ namespace LibraryAPI.Application.UseCases.Authors.GetAuthorByIdUseCase
                 throw new ValidationException(validationResult.Errors);
             }
 
-
-            var author = await _context
-                                    .Authors
-                                    .FirstOrDefaultAsync(a => a.Id == command.Id);
+            var author = await _repository.GetByIdAsync(command.Id, ct);
 
             if (author == null)
             {

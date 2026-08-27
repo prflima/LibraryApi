@@ -5,24 +5,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAPI.Infrastructure.Repositories
 {
-    public class AuthorRepository : IAuthorRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly LibraryDbContext _context;
-        public AuthorRepository(
+        public CategoryRepository(
             LibraryDbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task CreateAsync(Author author, CancellationToken ct)
+        public async Task CreateAsync(Category category, CancellationToken ct)
         {
-            await _context.Authors.AddAsync(author, ct);
+            await _context.Categories.AddAsync(category, ct);
         }
 
-        public async Task<Author> GetByIdAsync(Guid Id, CancellationToken ct)
+        public async Task<Category> GetByIdAsync(Guid Id, CancellationToken ct)
         {
-            return await _context.Authors
-                                 .FirstOrDefaultAsync(author => author.Id == Id, ct);
+            return await _context.Categories
+                                 .FirstOrDefaultAsync(c => c.Id == Id, ct);
         }
 
         public async Task SaveChangesAsync(CancellationToken ct)
