@@ -1,5 +1,5 @@
 ﻿using LibraryAPI.Application.Category.CreateCategoryUseCase;
-using LibraryAPI.Application.Category.GetCategoryByIdUseCase;
+using LibraryAPI.Application.Dtos;
 using LibraryAPI.Domain.Entities;
 
 namespace LibraryAPI.Mapping
@@ -11,24 +11,13 @@ namespace LibraryAPI.Mapping
             return new Category(command.Name);
         }
 
-        public static CreateCategoryResponseDto ToDto(this Category category)
+        public static CategoryDto ToDto(this Category category)
         {
-            return new CreateCategoryResponseDto
+            return new CategoryDto
             {
                 Id = category.Id.ToString(),
                 Name = category.Name,
                 CreatedAt = category.CreatedAt
-            };
-        }
-
-        public static GetCategoryByIdResponseDto ToGetByIdDto(this Category category)
-        {
-            return new GetCategoryByIdResponseDto
-            {
-                Id = category.Id.ToString(),
-                Name = category.Name,
-                CreatedAt = category.CreatedAt,
-                Books = category.Books
             };
         }
     }

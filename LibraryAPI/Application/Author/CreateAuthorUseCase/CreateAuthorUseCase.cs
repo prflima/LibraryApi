@@ -29,7 +29,7 @@ namespace LibraryAPI.Application.Author.CreateAuthorUseCase
             await _context.Authors.AddAsync(author);
             await _context.SaveChangesAsync(ct);
 
-            return author.ToDto();
+            return new CreateAuthorResponseDto { Author = author.ToDto() };
         }
     }
 }

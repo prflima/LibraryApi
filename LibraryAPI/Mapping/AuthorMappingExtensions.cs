@@ -1,5 +1,5 @@
 ﻿using LibraryAPI.Application.Author.CreateAuthorUseCase;
-using LibraryAPI.Application.Author.GetAuthorByIdUseCase;
+using LibraryAPI.Application.Dtos;
 using LibraryAPI.Domain.Entities;
 
 namespace LibraryAPI.Mapping
@@ -11,19 +11,9 @@ namespace LibraryAPI.Mapping
             return new Author(command.Name);
         }
 
-        public static CreateAuthorResponseDto ToDto(this Author author)
+        public static AuthorDto ToDto(this Author author)
         {
-            return new CreateAuthorResponseDto
-            {
-                Id = author.Id.ToString(),
-                Name = author.Name,
-                CreatedAt = author.CreatedAt
-            };
-        }
-
-        public static GetAuthorByIdResponseDto ToGetByIdDto(this Author author)
-        {
-            return new GetAuthorByIdResponseDto
+            return new AuthorDto
             {
                 Id = author.Id.ToString(),
                 Name = author.Name,

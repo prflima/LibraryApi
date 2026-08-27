@@ -37,7 +37,7 @@ namespace LibraryAPI.Application.Author.GetAuthorByIdUseCase
                 throw new KeyNotFoundException($"Author with ID {command.Id} not found.");
             }
 
-            return author.ToGetByIdDto();
+            return new GetAuthorByIdResponseDto { Author = author.ToDto() };
         }
     }
 }

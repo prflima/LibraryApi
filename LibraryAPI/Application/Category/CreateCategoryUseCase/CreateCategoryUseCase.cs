@@ -31,7 +31,7 @@ namespace LibraryAPI.Application.Category.CreateCategoryUseCase
             await _context.Categories.AddAsync(category);
             await _context.SaveChangesAsync(ct);
 
-            return category.ToDto();
+            return new CreateCategoryResponseDto { CategoryDto = category.ToDto() };
         }
     }
 }

@@ -16,7 +16,7 @@ namespace LibraryAPI.Controllers
             CancellationToken ct)
         {
             var response = await useCase.ExecuteAsync(command, ct);
-            return CreatedAtAction(nameof(GetById), new { id = response.Id }, response);
+            return CreatedAtAction(nameof(GetById), new { id = response.Author.Id }, response);
         }
 
         [HttpGet("{guid}")]

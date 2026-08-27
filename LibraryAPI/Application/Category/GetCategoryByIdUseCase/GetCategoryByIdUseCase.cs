@@ -32,7 +32,7 @@ namespace LibraryAPI.Application.Category.GetCategoryByIdUseCase
             if(category is null)
                 throw new KeyNotFoundException($"Author with ID {command.Id} not found.");
 
-            return category.ToGetByIdDto();
+            return new GetCategoryByIdResponseDto { CategoryDto = category.ToDto() };
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿namespace LibraryAPI.Application.Author.GetAuthorByIdUseCase
+﻿using LibraryAPI.Application.Dtos;
+
+namespace LibraryAPI.Application.Author.GetAuthorByIdUseCase
 {
     public record GetAuthorByIdResponseDto
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public AuthorDto Author { get; init; }
     }
 }
