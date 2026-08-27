@@ -1,9 +1,9 @@
-﻿using LibraryAPI.Application.Category.GetCategoryByIdUseCase;
+﻿using LibraryAPI.Application.UseCases.Categories.GetCategoryByIdUseCase;
 
 namespace LibraryAPI.Application.Interfaces.Category
 {
     public interface IGetCategoryByIdUseCase
     {
-        Task<GetCategoryByIdResponseDto> ExecuteAsync(GetCategoryByIdCommand command, CancellationToken ct);
+        Task<GetCategoryByIdResponseDto> ExecuteAsync(GetCategoryByIdQuery command, CancellationToken ct);
     }
 }

@@ -1,9 +1,9 @@
-﻿using LibraryAPI.Application.Author.GetAuthorByIdUseCase;
+﻿using LibraryAPI.Application.UseCases.Authors.GetAuthorByIdUseCase;
 
 namespace LibraryAPI.Application.Interfaces.Author
 {
     public interface IGetAuthorByIdUseCase
     {
-        Task<GetAuthorByIdResponseDto> ExecuteAsync(GetAuthorByIdCommand command, CancellationToken ct);
+        Task<GetAuthorByIdResponseDto> ExecuteAsync(GetAuthorByIdQuery command, CancellationToken ct);
     }
 }

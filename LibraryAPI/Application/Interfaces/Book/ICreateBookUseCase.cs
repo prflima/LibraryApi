@@ -1,4 +1,4 @@
-﻿using LibraryAPI.Application.Books.CreateBookUseCase;
+﻿using LibraryAPI.Application.UseCases.Books.CreateBookUseCase;
 
 namespace LibraryAPI.Application.Interfaces.Book
 {

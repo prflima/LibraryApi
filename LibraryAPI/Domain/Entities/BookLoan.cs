@@ -1,4 +1,4 @@
-﻿using LibraryAPI.Enums;
+﻿using LibraryAPI.Domain.Enums;
 
 namespace LibraryAPI.Domain.Entities
 {

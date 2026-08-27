@@ -1,4 +1,4 @@
-﻿using LibraryAPI.Application.Author.CreateAuthorUseCase;
+﻿using LibraryAPI.Application.UseCases.Authors.CreateAuthorUseCase;
 
 namespace LibraryAPI.Application.Interfaces.Author
 {
