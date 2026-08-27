@@ -2,11 +2,13 @@
 using LibraryAPI.Application.Interfaces.Author;
 using LibraryAPI.Application.Interfaces.Book;
 using LibraryAPI.Application.Interfaces.Category;
+using LibraryAPI.Application.Interfaces.Users;
 using LibraryAPI.Application.UseCases.Authors.CreateAuthorUseCase;
 using LibraryAPI.Application.UseCases.Authors.GetAuthorByIdUseCase;
 using LibraryAPI.Application.UseCases.Books.CreateBookUseCase;
 using LibraryAPI.Application.UseCases.Categories.CreateCategoryUseCase;
 using LibraryAPI.Application.UseCases.Categories.GetCategoryByIdUseCase;
+using LibraryAPI.Application.UseCases.Users.CreateUserUseCase;
 
 namespace LibraryAPI.Application.DependencyInjection
 {
@@ -23,6 +25,8 @@ namespace LibraryAPI.Application.DependencyInjection
             services.AddScoped<ICreateCategoryUseCase, CreateCategoryUseCase>();
             services.AddScoped<IGetCategoryByIdUseCase, GetCategoryByIdUseCase>();
             services.AddScoped<ICreateBookUseCase, CreateBookUseCase>();
+            services.AddScoped<ICreateUserUseCase, CreateUserUseCase>();
+
             return services;
         }
     }

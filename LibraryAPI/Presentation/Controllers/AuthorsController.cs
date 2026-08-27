@@ -12,21 +12,21 @@ namespace LibraryAPI.Presentation.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(
             [FromBody] CreateAuthorCommand command,
-            [FromServices] ICreateAuthorUseCase useCase,
+            [FromServices] ICreateAuthorUseCase _useCase,
             CancellationToken ct)
         {
-            var response = await useCase.ExecuteAsync(command, ct);
+            var response = await _useCase.ExecuteAsync(command, ct);
             return CreatedAtAction(nameof(GetById), new { id = response.Author.Id }, response);
         }
 
         [HttpGet("{guid}")]
         public async Task<IActionResult> GetById(
             [FromRoute] Guid guid,
-            [FromServices] IGetAuthorByIdUseCase useCase,
+            [FromServices] IGetAuthorByIdUseCase _useCase,
             CancellationToken ct)
         {
             var command = new GetAuthorByIdQuery(guid);
-            var response = await useCase.ExecuteAsync(command, ct);
+            var response = await _useCase.ExecuteAsync(command, ct);
             return Ok(response);
         }
     }

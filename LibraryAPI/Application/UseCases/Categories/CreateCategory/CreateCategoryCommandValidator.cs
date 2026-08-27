@@ -1,0 +1,16 @@
+﻿using FluentValidation;
+
+namespace LibraryAPI.Application.UseCases.Categories.CreateCategory
+{
+    public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
+    {
+        public CreateCategoryCommandValidator()
+        {
+            RuleFor(x => x.Name)
+                .NotEmpty()
+                .WithMessage("Category name is required.")
+                .MaximumLength(30)
+                .WithMessage("Category name must not exceed 30 characters.");
+        }
+    }
+}
