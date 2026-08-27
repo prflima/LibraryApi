@@ -1,5 +1,5 @@
 ﻿using LibraryAPI.Application.Dtos;
-using LibraryAPI.Application.UseCases.Users.CreateUserUseCase;
+using LibraryAPI.Application.UseCases.Users.CreateUser;
 using LibraryAPI.Domain.Entities;
 
 namespace LibraryAPI.Application.Mapping

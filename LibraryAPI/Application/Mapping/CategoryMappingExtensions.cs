@@ -1,5 +1,5 @@
 ﻿using LibraryAPI.Application.Dtos;
-using LibraryAPI.Application.UseCases.Categories.CreateCategoryUseCase;
+using LibraryAPI.Application.UseCases.Categories.CreateCategory;
 
 namespace LibraryAPI.Application.Mapping
 {

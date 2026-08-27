@@ -1,5 +1,5 @@
 ﻿using LibraryAPI.Application.Dtos;
-using LibraryAPI.Application.UseCases.Authors.CreateAuthorUseCase;
+using LibraryAPI.Application.UseCases.Authors.CreateAuthor;
 
 namespace LibraryAPI.Application.Mapping
 {

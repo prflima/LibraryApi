@@ -1,6 +1,5 @@
 ﻿using LibraryAPI.Application.Dtos;
-using LibraryAPI.Application.Mapping;
-using LibraryAPI.Application.UseCases.Books.CreateBookUseCase;
+using LibraryAPI.Application.UseCases.Books.CreateBook;
 using LibraryAPI.Domain.Entities;
 
 namespace LibraryAPI.Application.Mapping
@@ -25,6 +24,7 @@ namespace LibraryAPI.Application.Mapping
             {
                 Id = book.Id.ToString(),
                 Title = book.Title,
+                ISBN = book.ISBN, 
                 Author = book.Author?.ToDto(),
                 Category = book.Category?.ToDto(),
                 CreatedAt = book.CreatedAt

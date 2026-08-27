@@ -6,6 +6,7 @@ namespace LibraryAPI.Domain.Interfaces.Repositories
     {
         Task CreateAsync(Book book, CancellationToken ct);
         Task<Book> GetByIdAsync(Guid id,  CancellationToken ct);
+        Task<Book> GetBookAndCategoryByIdAsync(Guid id, CancellationToken ct);
         Task SaveChangesAsync(CancellationToken ct);
     }
 }

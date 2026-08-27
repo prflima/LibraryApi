@@ -1,6 +1,6 @@
 ﻿using LibraryAPI.Application.Interfaces.Author;
-using LibraryAPI.Application.UseCases.Authors.CreateAuthorUseCase;
-using LibraryAPI.Application.UseCases.Authors.GetAuthorByIdUseCase;
+using LibraryAPI.Application.UseCases.Authors.CreateAuthor;
+using LibraryAPI.Application.UseCases.Authors.GetAuthorById;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAPI.Presentation.Controllers

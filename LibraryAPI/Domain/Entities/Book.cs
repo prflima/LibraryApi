@@ -25,14 +25,18 @@
             AvailableQuantity = totalQuantity;
         }
 
-        public BookLoan Borrow(User user)
+        public BookLoan Borrow(User user, DateTime loanDate, DateTime dueDate)
         {
             if (AvailableQuantity <= 0 ||
                 AvailableQuantity > TotalQuantity)
                 throw new InvalidOperationException
                     ("This book is not available");
 
-            BookLoan result = new BookLoan(this, user, DateTime.Now, DateTime.Now.AddDays(5));
+            BookLoan result = new BookLoan
+                                    (this,
+                                    user,
+                                    loanDate, 
+                                    dueDate);
 
             AvailableQuantity--;
 

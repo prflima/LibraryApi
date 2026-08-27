@@ -1,5 +1,5 @@
 ﻿using LibraryAPI.Application.Interfaces.Book;
-using LibraryAPI.Application.UseCases.Books.CreateBookUseCase;
+using LibraryAPI.Application.UseCases.Books.CreateBook;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAPI.Presentation.Controllers

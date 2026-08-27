@@ -23,7 +23,8 @@ namespace LibraryAPI.Application.UseCases.Users.CreateUser
             if(!validationResult.IsValid)
                 throw new ValidationException(validationResult.Errors);
 
-            if (_userRepository.GetByEmailAsync(command.Email, ct) is not null)
+            var userAlreadyEmail = await _userRepository.GetByEmailAsync(command.Email, ct);
+            if (userAlreadyEmail is not null)
                 throw new ArgumentException($"A user with this email: {command.Email}, already exists");
 
             var user = command.ToEntity();

@@ -19,6 +19,13 @@ namespace LibraryAPI.Infrastructure.Repositories
             await _context.Books.AddAsync(book, ct);
         }
 
+        public async Task<Book> GetBookAndCategoryByIdAsync(Guid id, CancellationToken ct)
+        {
+            return await _context.Books
+                                 .Include(b => b.Category)
+                                 .FirstOrDefaultAsync(b => b.Id == id);
+        }
+
         public async Task<Book> GetByIdAsync(Guid id, CancellationToken ct)
         {
             return await _context.Books

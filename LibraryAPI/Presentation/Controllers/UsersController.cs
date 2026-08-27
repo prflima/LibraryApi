@@ -1,5 +1,5 @@
 ﻿using LibraryAPI.Application.Interfaces.Users;
-using LibraryAPI.Application.UseCases.Users.CreateUserUseCase;
+using LibraryAPI.Application.UseCases.Users.CreateUser;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAPI.Presentation.Controllers

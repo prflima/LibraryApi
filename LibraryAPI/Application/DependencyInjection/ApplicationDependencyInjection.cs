@@ -1,14 +1,16 @@
 ﻿using FluentValidation;
 using LibraryAPI.Application.Interfaces.Author;
 using LibraryAPI.Application.Interfaces.Book;
+using LibraryAPI.Application.Interfaces.BookLoans;
 using LibraryAPI.Application.Interfaces.Category;
 using LibraryAPI.Application.Interfaces.Users;
-using LibraryAPI.Application.UseCases.Authors.CreateAuthorUseCase;
-using LibraryAPI.Application.UseCases.Authors.GetAuthorByIdUseCase;
-using LibraryAPI.Application.UseCases.Books.CreateBookUseCase;
-using LibraryAPI.Application.UseCases.Categories.CreateCategoryUseCase;
-using LibraryAPI.Application.UseCases.Categories.GetCategoryByIdUseCase;
-using LibraryAPI.Application.UseCases.Users.CreateUserUseCase;
+using LibraryAPI.Application.UseCases.Authors.CreateAuthor;
+using LibraryAPI.Application.UseCases.Authors.GetAuthorById;
+using LibraryAPI.Application.UseCases.BookLoans.CreateBookLoan;
+using LibraryAPI.Application.UseCases.Books.CreateBook;
+using LibraryAPI.Application.UseCases.Categories.CreateCategory;
+using LibraryAPI.Application.UseCases.Categories.GetCategoryById;
+using LibraryAPI.Application.UseCases.Users.CreateUser;
 
 namespace LibraryAPI.Application.DependencyInjection
 {
@@ -26,6 +28,7 @@ namespace LibraryAPI.Application.DependencyInjection
             services.AddScoped<IGetCategoryByIdUseCase, GetCategoryByIdUseCase>();
             services.AddScoped<ICreateBookUseCase, CreateBookUseCase>();
             services.AddScoped<ICreateUserUseCase, CreateUserUseCase>();
+            services.AddScoped<ICreateBookLoanUseCase, CreateBookLoanUseCase>();
 
             return services;
         }

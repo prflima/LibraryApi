@@ -24,6 +24,12 @@ namespace LibraryAPI.Infrastructure.Repositories
                                  .FirstOrDefaultAsync(u => u.Email == email);
         }
 
+        public async Task<User> GetByIdAsync(Guid userId, CancellationToken ct)
+        {
+            return await _context.Users
+                                 .FirstOrDefaultAsync(u => u.Id == userId);
+        }
+
         public async Task SaveChangesAsync(CancellationToken ct)
         {
             await _context.SaveChangesAsync(ct);
