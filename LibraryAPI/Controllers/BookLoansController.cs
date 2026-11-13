@@ -1,5 +1,5 @@
-﻿using Library.Application.Interfaces.BookLoans;
-using LibraryAPI.Application.UseCases.BookLoans.CreateBookLoan;
+﻿using Library.Application.Interfaces.Commands.BookLoans;
+using Library.Application.UseCases.Commands.BookLoans.CreateBookLoan;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAPI.Controllers

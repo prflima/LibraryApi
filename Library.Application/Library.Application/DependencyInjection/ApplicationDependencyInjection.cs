@@ -1,15 +1,17 @@
 ﻿using FluentValidation;
-using Library.Application.Interfaces.Authors;
-using Library.Application.Interfaces.BookLoans;
-using Library.Application.Interfaces.Books;
-using Library.Application.Interfaces.Categories;
+using Library.Application.Interfaces.Commands.Authors;
+using Library.Application.Interfaces.Commands.BookLoans;
+using Library.Application.Interfaces.Commands.Books;
+using Library.Application.Interfaces.Commands.Categories;
+using Library.Application.Interfaces.Queries.Authors;
+using Library.Application.Interfaces.Queries.Categories;
 using Library.Application.Interfaces.Users;
-using LibraryAPI.Application.UseCases.Authors.CreateAuthor;
-using LibraryAPI.Application.UseCases.Authors.GetAuthorById;
-using LibraryAPI.Application.UseCases.BookLoans.CreateBookLoan;
-using LibraryAPI.Application.UseCases.Books.CreateBook;
-using LibraryAPI.Application.UseCases.Categories.CreateCategory;
-using LibraryAPI.Application.UseCases.Categories.GetCategoryById;
+using Library.Application.UseCases.Commands.Authors.CreateAuthor;
+using Library.Application.UseCases.Commands.BookLoans.CreateBookLoan;
+using Library.Application.UseCases.Commands.Books.CreateBook;
+using Library.Application.UseCases.Commands.Categories.CreateCategory;
+using Library.Application.UseCases.Queries.Authors.GetAuthorById;
+using Library.Application.UseCases.Queries.Categories.GetCategoryById;
 using LibraryAPI.Application.UseCases.Users.CreateUser;
 using Microsoft.Extensions.DependencyInjection;
 

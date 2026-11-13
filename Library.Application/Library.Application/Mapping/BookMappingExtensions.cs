@@ -1,5 +1,5 @@
-﻿using LibraryAPI.Application.Dtos;
-using LibraryAPI.Application.UseCases.Books.CreateBook;
+﻿using Library.Application.UseCases.Commands.Books.CreateBook;
+using LibraryAPI.Application.Dtos;
 using LibraryAPI.Domain.Entities;
 
 namespace LibraryAPI.Application.Mapping

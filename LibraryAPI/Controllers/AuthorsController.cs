@@ -1,6 +1,7 @@
-﻿using Library.Application.Interfaces.Authors;
-using LibraryAPI.Application.UseCases.Authors.CreateAuthor;
-using LibraryAPI.Application.UseCases.Authors.GetAuthorById;
+﻿using Library.Application.Interfaces.Commands.Authors;
+using Library.Application.Interfaces.Queries.Authors;
+using Library.Application.UseCases.Commands.Authors.CreateAuthor;
+using Library.Application.UseCases.Queries.Authors.GetAuthorById;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAPI.Controllers
@@ -29,5 +30,17 @@ namespace LibraryAPI.Controllers
             var response = await _useCase.ExecuteAsync(command, ct);
             return Ok(response);
         }
+
+        //[HttpPut("{guid}")]
+        //public async Task<IActionResult> Update(
+        //    [FromRoute] Guid guid,
+        //    [FromBody] UpdateAuthorCommand command,
+        //    [FromServices] IUpdateAuthorUseCase _useCase,
+        //    CancellationToken ct)
+        //{
+        //    command.Id = guid;
+        //    var response = await _useCase.ExecuteAsync(command, ct);
+        //    return Ok(response);
+        //}
     }
 }

@@ -1,6 +1,7 @@
-﻿using Library.Application.Interfaces.Categories;
-using LibraryAPI.Application.UseCases.Categories.CreateCategory;
-using LibraryAPI.Application.UseCases.Categories.GetCategoryById;
+﻿using Library.Application.Interfaces.Commands.Categories;
+using Library.Application.Interfaces.Queries.Categories;
+using Library.Application.UseCases.Commands.Categories.CreateCategory;
+using Library.Application.UseCases.Queries.Categories.GetCategoryById;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAPI.Controllers
